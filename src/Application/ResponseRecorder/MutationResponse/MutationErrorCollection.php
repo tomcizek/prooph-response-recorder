@@ -2,10 +2,13 @@
 
 namespace TomCizek\ResponseRecorder\Application\ResponseRecorder\MutationResponse;
 
+use ArrayIterator;
 use Countable;
+use Iterator;
+use IteratorAggregate;
 use TomCizek\ResponseRecorder\Application\ResponseRecorder\MutationResponse\ErrorCollection\ShowableMutationError;
 
-class MutationErrorCollection implements Countable
+class MutationErrorCollection implements Countable, IteratorAggregate
 {
 	/** @var ShowableMutationError[] */
 	protected $errors = [];
@@ -29,5 +32,13 @@ class MutationErrorCollection implements Countable
 	public function getAll(): array
 	{
 		return $this->errors;
+	}
+
+	/**
+	 * @return Iterator|ShowableMutationError[]
+	 */
+	public function getIterator(): Iterator
+	{
+		return new ArrayIterator($this->errors);
 	}
 }
