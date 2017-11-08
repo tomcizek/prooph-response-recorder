@@ -2,7 +2,7 @@
 
 namespace TomCizek\ResponseRecorder\Application\ResponseRecorder\MutationResponse\ErrorCollection;
 
-class AbstractMutationError implements ShowableMutationError
+abstract class AbstractMutationError implements ShowableMutationError
 {
 	/** @var string */
 	protected $errorMessage;
