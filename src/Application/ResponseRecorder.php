@@ -30,7 +30,7 @@ final class ResponseRecorder
 		$this->logger = $logger;
 	}
 
-	public function recordOn($callback): BasicMutationResponse
+	public function recordOn(callable $callback): BasicMutationResponse
 	{
 		$responseBuilder = BasicMutationResponseBuilder::create();
 
